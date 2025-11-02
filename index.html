@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset Voter Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+      text-align: center;
+      padding: 60px;
+      color: #333;
+    }
+    h1 { font-size: 2em; margin-bottom: 25px; }
+    .reset-btn {
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .reset-btn:hover { background-color: #0056b3; transform: scale(1.05); }
+    #status { margin-top: 20px; font-size: 1.1em; color: #333; }
+  </style>
+</head>
+
+<body>
+  <h1>Reset Vote Access</h1>
+  <p>Click below to allow yourself to vote again on the main poll site.</p>
+
+  <button class="reset-btn" id="resetBtn">🔄 Reset My Vote Access</button>
+  <p id="status"></p>
+
+  <script>
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      localStorage.removeItem("hasVoted");
+      document.getElementById("status").textContent = "✅ You can now vote again!";
+    });
+  </script>
+</body>
+</html>
